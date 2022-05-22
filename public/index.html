@@ -1,37 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+    <title>Music page</title>
+</head>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+<body>
+    <!--ШАПКА САЙТА-->
+    <div class="flex-container-head">
+        <div class="logo_pic_area">
+            <img src="resource/music-store.png" alt="logo" class="logo_pic">
+        </div>
+        <div class="logo">
+            <p class="logo_text">MyMusic</p>
+        </div>
+        <div class="search">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+                integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+                crossorigin="anonymous">
+            <form action="">
+                <input type="search">
+                <i class="fa fa-search"></i>
+            </form>
+        </div>
+    </div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+    <!--ОБЩАЯ ИНФОРМАЦИЯ-->
+    <div class="site_body">
+        <div class="grid-container">
+            <div class="post-1">
+                <h1 class="tracks">Треки</h1>
+                <ol class="rounded">
+                    <li><a href="https://www.wildberries.ru/ " target="_blank">Элемент списка</a></li>
+                    <li><a href="#" target="_blank">List element</a></li>
+                    <li><a href="#" target="_blank">Элемент списка</a></li>
+                    <li><a href="#" target="_blank">Элемент списка</a></li>
+                    <li><a href="#" target="_blank">Элемент списка</a></li>
+                </ol>
+            </div>
+            <div class="post-2">
+                <div class="song_area">
+                    <div class="song_name">
+                        <h1>Song name</h1>
+                    </div>
+                    <div class="artist_name">
+                        <h1>Artist name</h1>
+                    </div>
+                    <img src="resource/1_podborka_04.jpg" alt="album" class="album_pic">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--ПОДВАЛ-->
+    <footer class="footer">
+    </footer>
+</body>
+
 </html>
