@@ -9,17 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
     <title>MyMusic</title>
 </head>
 
 <body>
-    <!--ШАПКА САЙТА-->
     <div class="flex-container-head">
         <div class="logo_pic_area">
-            <img src="resource/music-store.png" alt="logo" class="logo_pic">
+            <img src="resource/music-store.png" alt="logo" class="logo_pic" />
         </div>
         <div class="logo">
             <p class="logo_text">MyMusic</p>
@@ -27,38 +23,17 @@
         <div class="search">
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
                 integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-                crossorigin="anonymous">
-            <form action="">
-                <input type="search" id="song-search" name="q" placeholder="Search the song..." >
+                crossOrigin="anonymous" />
+            <form action="" >
+                <input type="search" id="song-search" name="q" placeholder="Search the song..." />
                 <i class="fa fa-search"></i>
             </form>
         </div>
     </div>
 
-    <!--ОБЩАЯ ИНФОРМАЦИЯ-->
-    <div class="site_body">
-        <div class="grid-container">
-            <div class="post-1">
-                <h1 class="tracks" id="song_list_name">Треки</h1>
-                <ol id="song_list" class="rounded">
-                </ol>
-            </div>
-            <div class="post-2">
-                <div class="song_area">
-                    <div class="song_name">
-                        <h1>Song name</h1>
-                    </div>
-                    <div class="artist_name">
-                        <h1>Artist name</h1>
-                    </div>
-                    <img src="resource/1_podborka_04.jpg" alt="album" class="album_pic">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--ПОДВАЛ-->
-    <footer class="footer">
+   <div id="root"></div>
+
+   <footer class="footer">
     </footer>
 </body>
-<script type="module" src="scripts/tracks.js"></script>
 </html>

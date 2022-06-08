@@ -111,7 +111,7 @@ h1 {
     background-color: #1b0a1e;
     width: 100%;
     height: auto;
-    min-height: 1000px;
+    min-height: 700px;
     position: relative;
     margin: 0;
     padding: 20px;
@@ -131,7 +131,7 @@ h1 {
 form {
     position: relative;
     top: 50%;
-    left: 50%;
+    left: 60%;
     transform: translate(-50%, -50%);
     transition: all 1s;
     width: 50px;
@@ -149,7 +149,6 @@ input {
     top: 0;
     left: 0;
     width: 100%;
-    ;
     height: 42.5px;
     line-height: 30px;
     outline: 0;
@@ -176,7 +175,7 @@ input {
 }
 
 form:hover {
-    width: 200px;
+    width: 300px;
     cursor: pointer;
 }
 
@@ -191,29 +190,42 @@ form:hover .fa {
 
 .grid-container {
     display: grid;
-    grid-row: auto;
+    grid-template-rows: 1fr, 7fr;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: 'post-1 post-1 post-2';
+    grid-template-areas: 'tracks tracks post-2'
+        'post-1 post-1 post-2';
     height: 100%;
     width: 80%;
     margin: auto;
     overflow: auto;
-    min-height: 700px;
+    height: 530px;
     gap: 20px;
 }
 
 .post-1 {
     grid-area: post-1;
     padding: 30px;
+    padding-top: 0;
+    width: 100%;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .post-2 {
     grid-area: post-2;
+    overflow: hidden;
+}
+
+.post-1::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
 /*СПИСОК*/
 
 .tracks {
+    grid-area: tracks;
     text-align: left;
     font-size: 45px;
     font-weight: bold;
@@ -233,6 +245,7 @@ form:hover .fa {
     font-weight: normal;
     padding: 0;
     text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+    margin-top: 0;
     margin-left: 10px;
     width: 100%;
     height: auto;
