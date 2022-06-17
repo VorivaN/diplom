@@ -6,12 +6,28 @@ import { Track,  getTopTracks, getSearchedTracks } from "../src/scripts";
 
 export default function App() {
 	return (
+    <>
+        <div className="flex-container-head">
+            <div className="logo_pic_area">
+                <img src="resource/music-store.png" alt="logo" className="logo_pic" />
+            </div>
+            <div className="logo">
+                <p className="logo_text">MyMusic</p>
+            </div>
+            <div className="search">
+                <form>
+                    <input type="search" id="song-search" name="q" placeholder="Search the song..." />
+                    <i className="fa fa-search"></i>
+                </form>
+            </div>
+        </div>
 		<div>
 			<Routes>
 				<Route path="/tracks" element={<TracksPage />} />
                 <Route path="*" element = { <Navigate to="/tracks" /> } />
 			</Routes>
 		</div>
+    </>
 	);
 }
 
