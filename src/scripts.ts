@@ -12,24 +12,30 @@ export type Track = {
 }
 
 async function getData(url: string)  {
-    const response = await fetch(url);
-    return response.json();
+    try{
+        const response = await fetch(url);
+        return response.json();
+    } catch (err){
+        throw `Ошибка GET запроса по адресу ${url.substring(0, 50)}...`;
+    }
 }
 
-export function getTopTracks(limit: number): Promise<Track[]>  {
+export function getTopTracks(limit: number): Promise<Track[]>   {
     const url = `https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=${api_key}&format=json&limit=${limit}`
    
     let json =  getData(url);
-    return json.then(element => {
-        return element.tracks.track;
+    return json.then(result => {
+        return result.tracks.track;
+    }, error => {
+        throw `Не удалось получить топ-100 треков: ${error}`;
     });
 }
 
 export function getSearchedTracks(songName: string, limit: number): Promise<Track[]> {
     const url = `http://ws.audioscrobbler.com/2.0/?method=track.search&track=${songName}&api_key=${api_key}&format=json&limit=${limit}`
     let json =  getData(url);
-    return json.then(element => {
-        return element.results.trackmatches.track.map((e : Track) => {
+    return json.then(result => {
+        return result.results.trackmatches.track.map((e : Track) => {
             return {
                 name: e.name,
                 url: e.url,
@@ -38,5 +44,7 @@ export function getSearchedTracks(songName: string, limit: number): Promise<Trac
                 }
             };
         });
+    }, error => {
+        throw `Не удалось получить топ-100 треков по запросу ${songName}: ${error}`;
     });
 }

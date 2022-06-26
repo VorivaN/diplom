@@ -1,26 +1,43 @@
 import React from 'react';
 import { Routes, Route, RouterProps, Link, useParams, useSearchParams, Navigate } from "react-router-dom";
-import { Track,  getTopTracks, getSearchedTracks } from "../src/scripts";
+import { Track,  getTopTracks, getSearchedTracks } from "./scripts";
 import { Tracks } from './Tracks';
 
-export function TracksList( {...props} : { tracks: Promise<Track[]>, onTrackChange: Function }) {
+
+interface ChartProps {
+    onTrackChange: Function
+}
+
+export function Chart  (props : ChartProps) {
+
     const [data, setData] = React.useState<Track[]>([]);
+    const [isLoaded, setIsLoaded] = React.useState<boolean>(false);
     const [hasError, setHasError] = React.useState<boolean>(false);
     const [loadError, setError] = React.useState<string>("");
 
+    
     React.useEffect(() => {
-        props.tracks.then((e) => setData(e))
-          .catch((error) => {
+         getTopTracks(100).then(result => {
+            setData(result);
+            setIsLoaded(true);
+        },
+        error => {
             setHasError(true);
-            setError("Произошла ошибка при загрузке треков.\n Ошибка: " + error.stack);
-        });
+            setError(error);
+        })
     }, []);
 
     
-    if(hasError){
+    if(hasError) {
         return (
         <>
-            <p className='p_error'>{loadError}</p>
+            <p className='p_notify'>{loadError}</p>
+        </>);
+    }
+    if(!isLoaded) {
+        return (
+        <>
+            <p className='p_notify'>Загрузка...</p>
         </>);
     }
     return (

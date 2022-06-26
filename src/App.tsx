@@ -9,8 +9,10 @@ export default function App() {
     <>
         <div className="flex-container-head">
             <div className="logo_pic_area">
-                <img src="resource/music-store.png" alt="logo" className="logo_pic" />
-            </div>
+                <a href='/'>
+                    <img  src="resource/music-store.png" alt="logo" className="logo_pic" />
+                </a>
+                </div>
             <div className="logo">
                 <p className="logo_text">MyMusic</p>
             </div>
